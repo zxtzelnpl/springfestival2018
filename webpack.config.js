@@ -6,7 +6,7 @@ const OpenBrowserPlugin = require('open-browser-webpack-plugin')
 module.exports = {
   entry: path.resolve(__dirname, 'app/index.js'),
   output: {
-    path: __dirname + '/build',
+    path: __dirname + '/buildspring',
     publicPath: '/',
     filename: '[name].bundle.js'
   },
@@ -72,7 +72,7 @@ module.exports = {
         changeOrigin: true
       }
     ],
-    contentBase: './build',//本地服务器所加载的页面所在的目录
+    contentBase: './buildspring',//本地服务器所加载的页面所在的目录
     inline: true,//实时刷新
     hot: true,//使用热加载插件 HotModuleReplacementPlugin
     noInfo: false

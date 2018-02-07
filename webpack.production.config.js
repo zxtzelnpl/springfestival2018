@@ -18,10 +18,10 @@ module.exports = {
     ]
   },
   output: {
-    path: __dirname + '/build',
+    path: __dirname + '/buildspring',
     filename: "[name].[chunkhash:8].js",
     // filename:'[name].js',
-    publicPath: '/build/'
+    publicPath: '/buildspring/'
   },
   resolve: {
     extensions:['.js','.jsx']
