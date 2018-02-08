@@ -1,0 +1,27 @@
+@import "../static/const.less";
+.toast{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+
+  margin:0 auto;
+  width:480*@one;
+  height:40px;
+  line-height:40px;
+  border:1px solid red;
+  border-radius:5px;
+
+  text-align: center;
+
+  background:#fff;
+
+  transition:transform 1s ease-in-out;
+
+  &.hide{
+    transform:translateY(-100%);
+  }
+  &.show{
+    transform:translateY(0);
+  }
+}

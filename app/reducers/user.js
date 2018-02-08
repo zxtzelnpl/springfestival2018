@@ -24,7 +24,7 @@ export default function user(state = initialState, action) {
         received:true,
         phone: action.phone,
         name:action.name,
-        err_msg:''
+        err_msg:null
       }
     case actionTypes.USERCHECK_ANSWER:
       return {
@@ -36,6 +36,11 @@ export default function user(state = initialState, action) {
         ...state,
         isFetching: false,
         err_msg:action.err_msg
+      }
+    case actionTypes.USER_CLEARERROR:
+      return {
+          ...state,
+        err_msg:null
       }
     default:
       return state

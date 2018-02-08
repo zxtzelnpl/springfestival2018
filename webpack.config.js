@@ -67,7 +67,7 @@ module.exports = {
   devServer: {
     proxy: [
       {
-        context: ['/ashx/**'],
+        context: ['/ashx/**','/Activityashx/**','/WX/**'],
         target: 'http://new.cjtglm.com',
         changeOrigin: true
       }

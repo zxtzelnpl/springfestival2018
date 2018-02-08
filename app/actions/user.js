@@ -5,11 +5,10 @@ const requestPosts = () => ({
   type: actionTypes.USERCHECK_REQUEST_POST
 })
 
-const received = (check,phone,id) =>({
+const received = (name,phone) =>({
   type: actionTypes.USERCHECK_RECEIVED,
-  check,
-  phone,
-  id
+  name,
+  phone
 })
 
 export const receivedError = (err_msg) =>({
@@ -19,13 +18,14 @@ export const receivedError = (err_msg) =>({
 
 const fetchPosts = ({name,phone,score}) => dispatch => {
   dispatch(requestPosts())
-  let url = `${user_ashx}?name=${name}&phone=${phone}&score=${score}`
+  let url = `${user_ashx}?name=${name}&phone=${phone}&Fraction=${score}`
 
   return fetch(url)
       .then(response => response.json())
       .then(json => {
-        if(json.error==='1'){
-          dispatch(received(true,phone,json.data[0].id,json.data[0].prize))
+        console.log(json)
+        if(json.code==='1'){
+          dispatch(received(name,phone))
         }
         else{
           dispatch(receivedError(json.msg))
@@ -49,4 +49,8 @@ export const fetchPostsIfNeeded = value => (dispatch, getState) => {
 export const getScore = score => ({
   type:actionTypes.USERCHECK_ANSWER,
   score:score
+})
+
+export const clearErr = ()=>({
+ type:actionTypes.USER_CLEARERROR
 })

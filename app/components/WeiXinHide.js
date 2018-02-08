@@ -3,6 +3,7 @@
 import './WeiXinHide.less'
 import React from 'react'
 import weixin from '../static/weixin'
+import {share_weixin} from '../constants/urls'
 
 class WeiXinHide extends React.Component{
 
@@ -11,7 +12,14 @@ class WeiXinHide extends React.Component{
   }
 
   componentDidMount(){
-    weixin({})
+    fetch(share_weixin)
+        .then(res=>res.json())
+        .then(json=>{
+          weixin(json)
+        })
+        .catch(err=>{
+          console.log(err)
+        })
   }
 
   render(){
