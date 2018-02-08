@@ -18,8 +18,18 @@ class Toast extends React.Component{
     console.log(this.props.err_msg)
   }
 
-  onTransitionEnd(){
-    console.log(this.className)
+  onTransitionEnd(e){
+    if(e.target.className==='toast show'){
+      clearTimeout(this.timeControl)
+      this.timeControl = setTimeout(()=>{
+        this.props.userActions.clearErr()
+      },1500)
+    }
+
+  }
+
+  componentWillUnmount(){
+    clearTimeout(this.timeControl)
   }
 
   render(){
