@@ -13,8 +13,7 @@ module.exports = {
       'react-redux',
       'react-router-dom',
       'es6-promise',
-      'whatwg-fetch',
-      'moment'
+      'whatwg-fetch'
     ]
   },
   output: {
