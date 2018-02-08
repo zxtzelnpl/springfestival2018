@@ -12,10 +12,10 @@ class WeiXinHide extends React.Component{
   }
 
   componentDidMount(){
-    let urlComponent = encodeURIComponent(window.location);
-    let url = `${share_weixin}?location=${urlComponent}`
+    // let urlComponent = encodeURIComponent(window.location);
+    // let url = `${share_weixin}?location=${urlComponent}`
 
-    fetch(url)
+    fetch(share_weixin)
         .then(res=>res.json())
         .then(json=>{
           weixin(json)
