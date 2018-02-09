@@ -14,31 +14,31 @@ import img_low from './img/low.png'
 const answers = [1, 1, 1, 0, 1, 0, 2, 0, 3, 3]
 
 
-const HighShow = () => {
+const HighShow = ({score}) => {
   return (
       <div className="show_box">
         <img src={img_high}/>
-        <h3>100分！太完美了！</h3>
+        <h3>{score}分！太完美了！</h3>
         <p>超级投顾奖励您5期《选股牛人-吴伟伟》</p>
         <p>祝你2018一路发发发，涨停天天抓！</p>
       </div>
   )
 }
-const MiddleShow = () => {
+const MiddleShow = ({score}) => {
   return (
       <div className="show_box">
         <img src={img_middle}/>
-        <h3>70分-90分！哎哟，还不错哦！</h3>
+        <h3>{score}分！哎哟，还不错哦！</h3>
         <p>超级投顾送您5期《选股牛人-吴伟伟》</p>
         <p>祝你2018炒股旺旺旺，赚钱手不停！</p>
       </div>
   )
 }
-const LowShow = () => {
+const LowShow = ({score}) => {
   return (
       <div className="show_box">
         <img src={img_low}/>
-        <h3>60分以下！加把劲，你可以更优秀！</h3>
+        <h3>{score}分！加把劲，你可以更优秀！</h3>
         <p>超级投顾送您5期《选股牛人-吴伟伟》</p>
         <p>牛人助战，祝你2018人旺财发！</p>
       </div>
@@ -101,13 +101,13 @@ class Result extends React.Component {
         , showbox
 
     if (total_score === 100) {
-      showbox = <HighShow/>
+      showbox = <HighShow score={total_score}/>
     }
     else if (total_score >= 60) {
-      showbox = <MiddleShow/>
+      showbox = <MiddleShow score={total_score}/>
     }
     else {
-      showbox = <LowShow/>
+      showbox = <LowShow score={total_score}/>
     }
 
     return showbox
